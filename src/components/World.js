@@ -4,7 +4,7 @@ import Mint from './mini/Mint'
 
 function World() {
   return (
-    <div className='bg-[#B1B5BE]/50 min-h-screen flex flex-col judstify-center items-center font-[Symtext] '>
+    <div className='bg-[#B1B5BE]/50 min-h-screen flex flex-col judstify-center items-center fonst-[Symtext] '>
         
        <h3 className='text-xl lg:text-4xl self-center justify-self-center align mt-20 lg:mb-20'>
        A NEW World OF BASED BRIANS!
