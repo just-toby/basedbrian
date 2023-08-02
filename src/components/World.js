@@ -1,6 +1,6 @@
 import React from 'react'
 import Mint from './mini/Mint'
-
+import './App.css'
 
 function World() {
   return (
