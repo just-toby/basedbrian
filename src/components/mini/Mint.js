@@ -29,7 +29,7 @@ function Mint() {
       // Define a mapping from network ID to RPC URL
       const rpcUrls = {
         84531: 'https://goerli.base.org',
-        8453: 'https://mainnet.base.org'                       // Custom network
+        //8453: 'https://mainnet.base.org'                       // Custom network
         // Add more networks if needed
       };
 
@@ -51,7 +51,7 @@ function Mint() {
   // Function to mint a new token
   const mintToken = async () => {
 
-     const contractAddress = "0x47F87c56dB6b3751b9f1d71B4A36d1f2D28ed843"; // Replace with your contract address
+     const contractAddress = "0xc9E1A67eE1e74c625e86Cb3FC12B60eBef7Ab769"; // Replace with your contract address
    const contractABI = [
         {
           "inputs": [],
@@ -712,7 +712,7 @@ function Mint() {
     const contract = new ethers.Contract(contractAddress, contractABI, signer);
 
    // Get the mint price from the contract
-   const mintPrice = await contract.mintPrice();
+   const mintPrice = ethers.parseEther("0.001")//await contract.mintPrice();
    
 
      try {
