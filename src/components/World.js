@@ -19,7 +19,7 @@ function World() {
 
 <br></br>
 <br></br>
-        Created as an homage to Brian Armstrong, Based Brians are the first Crypto Punk derivative minted on Coinbase’s breakthrough blockchain. 
+        Created as an homage to Brian, Based Brians are the first Crypto Punk derivative minted on Coinbase’s breakthrough blockchain. 
 
 
 

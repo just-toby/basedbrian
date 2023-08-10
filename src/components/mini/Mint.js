@@ -3,12 +3,13 @@ import hero from "../../assets/hero2.svg"
 import mintnow from "../../assets/mintnow.svg"
 
 
-import { ethers } from 'ethers';
+import { FixedNumber, ethers } from 'ethers';
 
 function Mint() {
      const [provider, setProvider] = useState(null);
      const [signer, setSigner] = useState(null);
      const [mintQty, setMintQty] = useState(1);
+     const [isBased, setIsBased] = useState(false);
 
   // Initialize ethers.js with a custom RPC URL
   useEffect(() => {
@@ -25,11 +26,22 @@ function Mint() {
 
       // Get network id using window.ethereum
       const networkId = await window.ethereum.request({ method: 'net_version' });
+      
+
+      if (networkId != 8453) {
+        alert("You aren't based if you aren't on the BASE network. Please switch to BASE network and try again.");
+        setIsBased(false);
+      } else {
+        setIsBased(true);
+      }
+
+      //Run the same logic every time the network changes
+      window.ethereum.on('chainChanged', (_chainId) => window.location.reload());
 
       // Define a mapping from network ID to RPC URL
       const rpcUrls = {
-        84531: 'https://goerli.base.org',
-        //8453: 'https://mainnet.base.org'                       // Custom network
+        
+        8453: 'https://mainnet.base.org'                       // Custom network
         // Add more networks if needed
       };
 
@@ -51,7 +63,7 @@ function Mint() {
   // Function to mint a new token
   const mintToken = async () => {
 
-     const contractAddress = "0xc9E1A67eE1e74c625e86Cb3FC12B60eBef7Ab769"; // Replace with your contract address
+     const contractAddress = "0x3916a87964d5fa3fde76f07f697910d24f7046fc"; // Replace with your contract address
    const contractABI = [
         {
           "inputs": [],
@@ -711,18 +723,20 @@ function Mint() {
     // Create a new instance of the contract
     const contract = new ethers.Contract(contractAddress, contractABI, signer);
 
-   // Get the mint price from the contract
-   const mintPrice = ethers.parseEther("0.001")//await contract.mintPrice();
+   // Get the mint price as a big number hardcoded to 0.069 ETH and multiply by the quantity
+   const mintPrice = ethers.parseEther('0.069')  * ethers.toBigInt(mintQty.toString())
    
+  //alert(ethers.formatEther(mintPrice).toString());
 
-     try {
+   try {
         //Call the mintToken function of the contract
-        const tx = await contract.mint(mintQty, { value: mintPrice });
+        const tx = await contract.mint(parseInt(mintQty), { value: mintPrice });
 
         // Wait for the transaction to be mined
 
         const receipt = await tx.wait();
         console.log(receipt);
+        alert("Thank you for minting! You are now based.")
      } catch (error) {
         console.log(error);
         //See if it is a revert due to insufficent ether and alert the user:
@@ -730,12 +744,9 @@ function Mint() {
            alert("Insufficient Ether to mint this token");
         }
 
-
      }
     
   };
-
-
 
   return (
     <div className="lg:pl-60 mint bg-grdeen-900 w-full lg:w-2/4 flex flex-col items-center  ">
@@ -753,7 +764,7 @@ function Mint() {
 
        <div className="mintsection flex flex-col justify-center items-center mb-10">
 
-<button onClick={mintToken} className="button">
+<button onClick={mintToken} className="button" disabled={!isBased}>
     <img src={mintnow} alt="" className='w-44 mb-5 lg:w-64 lg:mb-2' />
 </button>
     <input className=' w-[234px] h-[52px] rounded-lg ml-2 lg:h-[77px] lg:w-[343px] text-center lg:text-xl !m-0 p-0' type="text"
