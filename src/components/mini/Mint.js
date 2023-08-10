@@ -27,7 +27,7 @@ function Mint() {
       // Get network id using window.ethereum
       const networkId = await window.ethereum.request({ method: 'net_version' });
       
-
+const chainCheck = () => {
       if (networkId != 8453) {
         alert("You aren't based if you aren't on the BASE network. Please switch to BASE network and try again.");
         setIsBased(false);
@@ -35,8 +35,10 @@ function Mint() {
         setIsBased(true);
       }
 
+    }
+    chainCheck()
       //Run the same logic every time the network changes
-      window.ethereum.on('chainChanged', (_chainId) => window.location.reload());
+      window.ethereum.on('chainChanged', chainCheck());
 
       // Define a mapping from network ID to RPC URL
       const rpcUrls = {
