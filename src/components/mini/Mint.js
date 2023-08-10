@@ -38,7 +38,7 @@ const chainCheck = () => {
     }
     chainCheck()
       //Run the same logic every time the network changes
-      window.ethereum.on('chainChanged', chainCheck());
+      //window.ethereum.on('chainChanged', chainCheck());
 
       // Define a mapping from network ID to RPC URL
       const rpcUrls = {
