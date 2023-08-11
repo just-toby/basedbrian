@@ -43,7 +43,7 @@ function World({passProvider, passSigner, passBased}) {
        mb-20 w-auto lg:w-2/6 
        '>
        
-       Each mint costs 0.1 ETH, and a portion of the funds raised will be donated to Brian’s charitable foundation, The Giving Pledge.
+       Each mint costs 0.069 ETH, and a portion of the funds raised will be donated to Brian’s charitable foundation, The Giving Pledge.
 
 
 
