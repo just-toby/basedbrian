@@ -26,13 +26,11 @@ function Hero() {
        </div>
 
        <div className="social buttons flex items-center mb-10">
-       <a href="">
-       <img src={discord} alt="" className='w-9 mb-5 mx-3      lg:w-14' />
-       </a>
-        <a href="">
+       
+        <a href="https://t.me/BasedBriansNFTonBase">
         <img src={telegram} alt="" className='w-9 mb-5 mx-3      lg:w-14' />
         </a>
-        <a href="">
+        <a href="twitter.com/buyinbriannfts">
         <img src={twitter} alt="" className='w-9 mb-5 mx-3      lg:w-14' />
         </a>
 
