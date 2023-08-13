@@ -719,7 +719,9 @@ function Mint({mainProvider,mainSigner, weBased}) {
                    {didMint && <MintModal didMint={didMint} />}
     
     
+        <div className='rounded-full bg-[#0052FF] flex justify-center items-center h-72 w-72'>
         <img src={hero} alt="" className='w-60     lg:w-52' />
+        </div>
     
     
         <h3 className='text-xl lg:text-2xl self-center justify-self-center align mt-5 text-center'>
