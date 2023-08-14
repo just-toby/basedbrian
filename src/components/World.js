@@ -40,11 +40,35 @@ function World({passProvider, passSigner, passBased}) {
     </div>
 
     <p className='text-base lg:text-2xl self-center justify-self-center text-center align mt-10 lg:mt-20 josephine mx-6   font-semibold
-       mb-20 w-auto lg:w-2/6 
+       mb-5 lg:mb-20 w-auto lg:w-2/6 
        '>
        
        Each mint costs 0.069 ETH, and a portion of the funds raised will be donated to Brian’s charitable foundation, The Giving Pledge.
 
+
+
+
+       </p>
+    <p className='text-base lg:text-6xl self-center justify-self-center text-center align josephine mx-6   font-bold
+       mb-2D0 w-auto lg:w-3/6 
+       '>
+       
+      COMING SOON
+
+
+       </p>
+    <p className='text-base lg:text-2xl self-center justify-self-center text-center align mt-1D0 mlg:mt-20 josephine mx-6   font-normal
+       mb-20 w-auto lg:w-3/6 
+       '>
+       
+       Every Holder of a Based Brian NFT will be eligible to claim a limited run of Based Brian Bald caps in the future.
+       <br/>
+       Embrace the Base
+       <br/>
+       Embrace the Bald
+       <br/>
+       Embrace the BRIAN
+       <br/>
 
 
 
