@@ -8,6 +8,7 @@ import World from "./components/World";
 import TermsModal from "./components/TermsModal";
 import BaseChainModal from "./components/BaseChainModal";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useRef } from "react";
 
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
@@ -34,14 +35,19 @@ const wagmiConfig = createConfig({
 });
 
 function App() {
+  const worldRef = useRef();
   return (
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains}>
         <div style={{ position: "absolute", top: 24, right: 24 }}>
           <ConnectButton />
         </div>
-        <Hero />
-        <World />
+        <Hero
+          onMintNowClick={() => {
+            worldRef?.current?.scrollIntoView({ behavior: "smooth" });
+          }}
+        />
+        <World ref={worldRef} />
         <BaseChainModal />
         <TermsModal />
         <Hidden />
