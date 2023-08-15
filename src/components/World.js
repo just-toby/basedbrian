@@ -1,7 +1,7 @@
 import React from "react";
 import Mint from "./mini/Mint";
 
-function World() {
+function World({}, ref) {
   //Braineum - brians are so smart they have their own currency.
   //braineum is the currency of the future.
   //brians are very based.
@@ -11,7 +11,10 @@ function World() {
   //i said "no, he's based".
   //she said "i know, he's based".
   return (
-    <div className="bg-[#B1B5BE]/50 min-h-screen flex flex-col judstify-center items-center fonst-[Symtext] ">
+    <div
+      ref={ref}
+      className="bg-[#B1B5BE]/50 min-h-screen flex flex-col judstify-center items-center fonst-[Symtext] "
+    >
       <h3 className="text-xl lg:text-4xl self-center justify-self-center align mt-20 lg:mb-20">
         A NEW World OF BASED BRIANS!
       </h3>
@@ -68,4 +71,4 @@ function World() {
   );
 }
 
-export default World;
+export default React.forwardRef(World);
