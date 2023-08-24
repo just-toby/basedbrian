@@ -10,11 +10,21 @@ import BaseChainModal from "./components/BaseChainModal";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useRef } from "react";
 
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import {
+  connectorsForWallets,
+  RainbowKitProvider,
+} from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { base } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
+import {
+  okxWallet,
+  injectedWallet,
+  rainbowWallet,
+  walletConnectWallet,
+  metaMaskWallet,
+} from "@rainbow-me/rainbowkit/wallets";
 
 const { chains, publicClient } = configureChains(
   [base],
@@ -23,11 +33,31 @@ const { chains, publicClient } = configureChains(
     publicProvider(),
   ]
 );
-const { connectors } = getDefaultWallets({
-  appName: "Based Brians",
-  projectId: "d4572d71ba87eda8d21480e6850549d3",
-  chains,
-});
+const projectId = "d4572d71ba87eda8d21480e6850549d3";
+const appName = "Based Brians";
+
+const connectors = connectorsForWallets([
+  {
+    groupName: "Recommended",
+    wallets: [
+      okxWallet({
+        appName,
+        projectId,
+        chains,
+      }),
+    ],
+  },
+  {
+    groupName: "Other Wallets",
+    wallets: [
+      rainbowWallet({ appName, projectId, chains }),
+      metaMaskWallet({ appName, chains }),
+      injectedWallet({ appName, chains }),
+      walletConnectWallet({ appName, projectId, chains }),
+    ],
+  },
+]);
+
 const wagmiConfig = createConfig({
   autoConnect: true,
   connectors,
