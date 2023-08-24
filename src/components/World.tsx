@@ -1,7 +1,9 @@
-import React from "react";
-import Mint from "./mini/Mint";
+import React from 'react';
+import Mint from './mini/Mint';
 
-function World({}, ref) {
+interface WorldProps {}
+
+function World(props: WorldProps, ref: React.Ref<HTMLDivElement>) {
   //Braineum - brians are so smart they have their own currency.
   //braineum is the currency of the future.
   //brians are very based.
@@ -11,10 +13,7 @@ function World({}, ref) {
   //i said "no, he's based".
   //she said "i know, he's based".
   return (
-    <div
-      ref={ref}
-      className="bg-[#B1B5BE]/50 min-h-screen flex flex-col judstify-center items-center fonst-[Symtext] "
-    >
+    <div ref={ref} className="bg-[#B1B5BE]/50 min-h-screen flex flex-col judstify-center items-center fonst-[Symtext] ">
       <h3 className="text-xl lg:text-4xl self-center justify-self-center align mt-20 lg:mb-20">
         A NEW World OF BASED BRIANS!
       </h3>
@@ -25,13 +24,12 @@ function World({}, ref) {
        mb-20 w-auto lg:w-2/6 lg:ml-20
        "
         >
-          Based Brians are 3,333 uniquely generated Brians. No two are exactly
-          alike, and each one of them can be officially owned by a single person
-          on the Base blockchain.
+          Based Brians are 3,333 uniquely generated Brians. No two are exactly alike, and each one of them can be
+          officially owned by a single person on the Base blockchain.
           <br></br>
           <br></br>
-          Created as an homage to Brian, Based Brians are the first Crypto Punk
-          derivative minted on Coinbase’s breakthrough blockchain.
+          Created as an homage to Brian, Based Brians are the first Crypto Punk derivative minted on Coinbase’s
+          breakthrough blockchain.
         </p>
 
         <Mint />
@@ -42,8 +40,8 @@ function World({}, ref) {
        mb-5 lg:mb-20 w-auto lg:w-2/6 
        "
       >
-        Each mint costs 0.069 ETH, and a portion of the funds raised will be
-        donated to Brian’s charitable foundation, The Giving Pledge.
+        Each mint costs 0.069 ETH, and a portion of the funds raised will be donated to Brian’s charitable foundation,
+        The Giving Pledge.
       </p>
       <p
         className="text-base lg:text-6xl self-center justify-self-center text-center align josephine mx-6   font-bold
@@ -57,8 +55,8 @@ function World({}, ref) {
        mb-20 w-auto lg:w-3/6 
        "
       >
-        Every Holder of a Based Brian NFT will be eligible to claim a limited
-        run of Based Brian Bald caps in the future.
+        Every Holder of a Based Brian NFT will be eligible to claim a limited run of Based Brian Bald caps in the
+        future.
         <br />
         Embrace the Base
         <br />

@@ -1,4 +1,5 @@
-import { useNetwork, useSwitchNetwork } from "wagmi";
+import { useNetwork, useSwitchNetwork } from 'wagmi';
+import React from 'react';
 
 function BaseChainModal() {
   const { chain } = useNetwork();
@@ -22,16 +23,13 @@ function BaseChainModal() {
 
         <div className="inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all my-8 align-middle max-w-lg w-full">
           <div className="px-4 py-5 sm:px-6">
-            <h3 className="text-lg leading-6 font-medium text-gray-900">
-              BASED Alert
-            </h3>
+            <h3 className="text-lg leading-6 font-medium text-gray-900">BASED Alert</h3>
           </div>
 
           <div className="px-6 py-4">
             <div className="text-sm text-gray-600">
               <p>
-                You're not truly BASED unless you're on the BASE chain. Make the
-                switch to get BASED.
+                You{"'"}re not truly BASED unless you{"'"}re on the BASE chain. Make the switch to get BASED.
               </p>
             </div>
           </div>
@@ -40,7 +38,7 @@ function BaseChainModal() {
             <button
               type="button"
               className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-              onClick={() => switchNetwork(8453)}
+              onClick={() => switchNetwork?.(8453)}
             >
               Understood
             </button>

@@ -1,5 +1,5 @@
-import React from "react";
-import Pics from "./mini/Pics";
+import React from 'react';
+import Pics from './mini/Pics';
 
 function Hidden() {
   return (

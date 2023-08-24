@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const MintModal = () => {
   const [isOpen, setIsOpen] = useState(true); // State to track modal visibility
@@ -18,9 +18,7 @@ const MintModal = () => {
 
         <div className="inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all my-8 align-middle max-w-lg w-full">
           <div className="px-4 py-5 sm:px-6">
-            <h3 className="text-lg leading-6 font-medium text-gray-900">
-              Congratulations!
-            </h3>
+            <h3 className="text-lg leading-6 font-medium text-gray-900">Congratulations!</h3>
           </div>
 
           <div className="px-6 py-4">
